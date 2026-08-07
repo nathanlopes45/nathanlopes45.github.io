@@ -436,8 +436,13 @@ main{ position:relative; z-index:1; }
   display:grid; grid-template-columns: repeat(2, 1fr); gap:24px;
 }
 
+/* Both faces are position:absolute for the 3D flip, so the card can't size
+   itself to its content — the height is fixed and the tallest front face has
+   to fit inside it. As the grid narrows the copy wraps onto more lines, so
+   this steps up at the widths where it would otherwise push the
+   "click to expand" footer out of the card (see the media queries below). */
 .flip-card{
-  position:relative; height:420px; perspective:1800px; cursor:pointer;
+  position:relative; height:450px; perspective:1800px; cursor:pointer;
 }
 .flip-card-placeholder{ pointer-events:none; cursor:default; }
 .flip-card-inner{
@@ -551,10 +556,21 @@ main{ position:relative; z-index:1; }
 }
 .flip-card.popped .flip-card-inner{ box-shadow: 0 30px 90px rgba(0,0,0,0.6); }
 
+/* Two columns, getting narrower: the cards shrink but the copy doesn't. */
+@media (max-width: 1050px){ .flip-card{ height:485px; } }
+@media (max-width: 950px){  .flip-card{ height:510px; } }
+
 @media (max-width: 860px){
   .cards-grid{ grid-template-columns: 1fr; }
-  .flip-card{ height:380px; }
+  /* One full-width column, so the cards are wide again and the copy fits
+     back onto fewer lines. */
+  .flip-card{ height:450px; }
 }
+/* Phones: one column, but now narrow enough that the wrapping gets worse again. */
+@media (max-width: 520px){ .flip-card{ height:505px; } }
+@media (max-width: 470px){ .flip-card{ height:530px; } }
+@media (max-width: 400px){ .flip-card{ height:570px; } }
+@media (max-width: 355px){ .flip-card{ height:630px; } }
 
 /* ============================================================
    Contact page

@@ -18,7 +18,7 @@
       <path id="skillPath" d="M -100,580 C 250,580 320,280 650,280 C 950,280 1020,680 1350,680 C 1500,680 1550,520 1700,520" />
     </defs>
     <text class="skill-band-text">
-      <textPath href="#skillPath" startOffset="0%">PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · FIREBASE · POSTGRESQL · GIT · DOCKER · LINUX · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · FIREBASE · POSTGRESQL · GIT · DOCKER · LINUX · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;
+      <textPath href="#skillPath" startOffset="0%">PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · FIREBASE · POSTGRESQL · SQLITE · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · FIREBASE · POSTGRESQL · SQLITE · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;
         <animate attributeName="startOffset" from="0%" to="-100%" dur="18s" repeatCount="indefinite" />
       </textPath>
     </text>
@@ -55,14 +55,14 @@
       <div class="hero-copy">
         <div class="status-chip">
           <span class="dot" aria-hidden="true"></span>
-          STATUS: OPEN_TO_INTERNSHIPS
+          STATUS: OPEN_TO_WORK
         </div>
         <h1>Nathan Charles Lopes</h1>
-        <p class="role">Software Developer | Cybersecurity &amp; ML background</p>
+        <p class="role">Software Developer | Cybersecurity Analyst | Security Engineer</p>
         <p class="lede">IT graduate student at the University of Melbourne. I build systems that detect,
-          investigate and explain, like a full-stack SIEM with AI-driven alert triage and a behaviour-based
-          mobile app. Just as comfortable using the tools an attacker would as I am writing the backend
-          code they're up against.</p>
+          investigate and explain, like a local-first network analyser that turns a household's own traffic
+          into per-person time, and a full-stack SIEM with AI-driven alert triage. Just as comfortable using
+          the tools an attacker would as I am writing the backend code they're up against.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">view projects</a>
           <a class="btn btn-ghost" href="#contact">get in touch</a>
@@ -81,7 +81,7 @@
           <li><span>focus</span><b>Cybersecurity · ML · Full‑stack</b></li>
           <li><span>degree</span><b>M.IT (Cybersecurity), 11/2026</b></li>
           <li><span>stack</span><b>Python · FastAPI · Django · Docker</b></li>
-          <li><span>tools</span><b>Nmap · Wireshark · Metasploit · Burp</b></li>
+          <li><span>tools</span><b>Nmap · Wireshark · Scapy · Burp</b></li>
         </ul>
         </div>
       </div>
@@ -93,10 +93,11 @@
     <div class="about-grid">
       <p class="about-text">I'm an IT graduate student at the University of Melbourne specialising in
         cybersecurity, with hands-on experience across Python, web development, and offensive/defensive
-        security tooling, including Wireshark, Nmap and Metasploit. My flagship project is a full-stack
-        SIEM platform that pairs detection engineering with an AI agent for alert investigation, and I'm
-        actively looking for an IT internship where I can apply both sides of that skill set: shipping
-        software and thinking like an attacker to make it safer.</p>
+        security tooling, including Wireshark, Nmap and Metasploit. My two flagship projects are
+        ActivityGraph, a local-first traffic analyser that runs on a Raspberry Pi gateway and reports where
+        a household's time actually goes, and a full-stack SIEM platform that pairs detection engineering
+        with an AI agent for alert investigation. I'm actively looking for a role where I can apply both
+        sides of that skill set: shipping software and thinking like an attacker to make it safer.</p>
       <div class="about-meta">
         <div class="meta-card">
           <span class="meta-label">based in</span>
@@ -104,7 +105,7 @@
         </div>
         <div class="meta-card">
           <span class="meta-label">looking for</span>
-          <span class="meta-value">IT / Security internships</span>
+          <span class="meta-value">Software / Security roles</span>
         </div>
         <div class="meta-card">
           <span class="meta-label">contact</span>
@@ -187,13 +188,102 @@
         <span class="toggle-chevron" aria-hidden="true">&#9662;</span>
       </span>
     </button>
-    <p class="teaser-text">A closer look at five builds: a full-stack SIEM with an AI investigation agent,
-      a behaviour-based matching app, a Django journal, an LSTM forecasting model, and a Flask app running
-      on AWS. Click the arrow to
+    <p class="teaser-text">A closer look at six builds: a local-first network analyser running on a Raspberry Pi
+      gateway, a full-stack SIEM with an AI investigation agent, a behaviour-based matching app, a Django
+      journal, an LSTM forecasting model, and a Flask app running on AWS. Click the arrow to
       expand and see the full breakdown for each.</p>
 
     <div class="projects-collapse" id="projectsCollapse">
       <div class="cards-grid" id="cardsGrid">
+
+        <!-- ACTIVITYGRAPH -->
+        <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="ActivityGraph, click to expand details" data-project="activitygraph">
+          <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+              <div class="case-head">
+                <span class="case-id">PROJECT_LOG_01</span>
+                <span class="severity severity--high">FEATURED</span>
+              </div>
+              <img class="card-img" src="assets/activitygraph-time-and-activity-graph.png" alt="ActivityGraph time breakdown and device-to-session-to-service activity graph" data-placeholder-text="+ add dashboard screenshot">
+              <h3>ActivityGraph</h3>
+              <p class="case-sub">Local-First Network Activity Analysis</p>
+              <p class="case-desc">Turns a household's own network traffic into per-person, per-category time.
+                Runs on a Raspberry Pi acting as the gateway, reads metadata only, and nothing ever leaves the machine.</p>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">scapy</span><span class="tag">FastAPI</span>
+                <span class="tag">SQLite</span><span class="tag">Raspberry Pi</span>
+              </div>
+              <span class="flip-hint">click to expand ↻</span>
+            </div>
+
+            <div class="flip-card-back">
+              <button class="card-close" aria-label="Close panel">✕</button>
+              <div class="back-scroll">
+                <div class="case-head">
+                  <span class="case-id">PROJECT_LOG_01</span>
+                  <span class="severity severity--high">FEATURED</span>
+                </div>
+                <h3>ActivityGraph</h3>
+                <p class="case-sub">Where did the time go, per person, across every device</p>
+
+                <p class="back-p">Screen-time tools report one device at a time, which is the wrong unit: people
+                  own several. ActivityGraph sits where every device's traffic already passes, on the network
+                  gateway, and answers the question per person instead. Local-first by design, so the price of
+                  that answer isn't handing a household's browsing history to somebody else's server.</p>
+
+                <h4>Pipeline</h4>
+                <ul class="back-list">
+                  <li><b>Traffic Collector:</b> live capture with <code>scapy</code>, reading DNS queries and the
+                    SNI hostname from TLS ClientHello messages. Metadata already visible in transit, so no
+                    decryption and no payload stored.</li>
+                  <li><b>Device identification:</b> vendor from a bundled offline OUI table, plus names learned
+                    passively from mDNS, NetBIOS and DHCP; unnamed devices are reported as unknown rather than
+                    guessed at.</li>
+                  <li><b>Flow Processor:</b> packets aggregated into 5-tuple flows with byte/packet counts and
+                    idle-based finalisation.</li>
+                  <li><b>Service Detection:</b> hostname matched against domain rules, falling back to well-known
+                    ports, and finally to a local LLM for the long tail. Traffic nobody chose to generate (updates,
+                    telemetry, ads) is categorised separately so it can't be mistaken for time someone spent.</li>
+                  <li><b>Activity Graph:</b> flows folded into named Sessions per device, so a flat flow list
+                    becomes a tree: <code>Laptop → Study Session → Canvas, Docs, Gmail</code>.</li>
+                  <li><b>Dashboard:</b> FastAPI plus a dependency-free single-page frontend (no CDN, no build step),
+                    rendering that graph as an actual node-link diagram. Binds <code>127.0.0.1</code> by default.</li>
+                </ul>
+
+                <h4>Groups, limits and blocking</h4>
+                <p class="back-p">Devices map to a person, and each group can block a service outright or give
+                  itself a daily allowance for one. With <code>--enforce-blacklist</code> the gateway drops that
+                  group's traffic to those destinations, in an <b>nftables</b> table of its own and failing open if
+                  anything goes wrong, so a bug in the enforcement path can't take the network down with it.</p>
+
+                <h4>Privacy by design</h4>
+                <ul class="back-list">
+                  <li>No packet payload is stored, only flow metadata and the hostname already sent in the clear.</li>
+                  <li>No external API calls: the MAC-vendor table ships offline, and the optional LLM is a local
+                    Ollama instance that fails open to "Uncategorized" rather than reaching for a cloud API.</li>
+                  <li>Passive by default. Every active probe (<code>--arp-sweep</code>, <code>--active-resolve</code>,
+                    <code>--dhcp-leases</code>) is opt-in, and history is only recorded if you ask for it.</li>
+                </ul>
+
+                <div class="back-stats">
+                  <div><b>515</b><span>automated tests</span></div>
+                  <div><b>30</b><span>test modules</span></div>
+                  <div><b>0</b><span>external API calls</span></div>
+                </div>
+
+                <div class="tags">
+                  <span class="tag">Python</span><span class="tag">scapy</span><span class="tag">FastAPI</span>
+                  <span class="tag">SQLite</span><span class="tag">nftables</span><span class="tag">Ollama</span>
+                  <span class="tag">pytest</span><span class="tag">GitHub Actions CI</span><span class="tag">Raspberry Pi</span>
+                </div>
+
+                <a class="case-link" href="https://github.com/nathanlopes45/activitygraph" target="_blank" rel="noopener">view repository →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
         <!-- SIEM -->
         <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Custom SIEM, click to expand details" data-project="siem">
@@ -201,8 +291,8 @@
 
             <div class="flip-card-front">
               <div class="case-head">
-                <span class="case-id">PROJECT_LOG_01</span>
-                <span class="severity severity--high">FEATURED</span>
+                <span class="case-id">PROJECT_LOG_02</span>
+                <span class="severity severity--high">SECURITY</span>
               </div>
               <img class="card-img" src="assets/siem-screenshot.png" alt="Custom SIEM dashboard screenshot" data-placeholder-text="+ add dashboard screenshot">
               <h3>Custom SIEM</h3>
@@ -220,8 +310,8 @@
               <button class="card-close" aria-label="Close panel">✕</button>
               <div class="back-scroll">
                 <div class="case-head">
-                  <span class="case-id">PROJECT_LOG_01</span>
-                  <span class="severity severity--high">FEATURED</span>
+                  <span class="case-id">PROJECT_LOG_02</span>
+                  <span class="severity severity--high">SECURITY</span>
                 </div>
                 <h3>Custom SIEM</h3>
                 <p class="case-sub">A hands-on Security Information &amp; Event Management lab</p>
@@ -292,7 +382,7 @@
 
             <div class="flip-card-front">
               <div class="case-head">
-                <span class="case-id">PROJECT_LOG_02</span>
+                <span class="case-id">PROJECT_LOG_03</span>
                 <span class="severity severity--med">GROUP · MOBILE</span>
               </div>
               <img class="card-img" src="assets/truematch-screenshot.png" alt="TrueMatch app screenshot" data-placeholder-text="+ add app screenshot">
@@ -310,7 +400,7 @@
               <button class="card-close" aria-label="Close panel">✕</button>
               <div class="back-scroll">
                 <div class="case-head">
-                  <span class="case-id">PROJECT_LOG_02</span>
+                  <span class="case-id">PROJECT_LOG_03</span>
                   <span class="severity severity--med">GROUP · MOBILE</span>
                 </div>
                 <h3>TrueMatch</h3>
@@ -354,7 +444,7 @@
 
             <div class="flip-card-front">
               <div class="case-head">
-                <span class="case-id">PROJECT_LOG_03</span>
+                <span class="case-id">PROJECT_LOG_04</span>
                 <span class="severity severity--low">WEB APP</span>
               </div>
               <img class="card-img" src="assets/edenthought-screenshot.png" alt="Edenthought dashboard screenshot" data-placeholder-text="+ add dashboard screenshot">
@@ -372,7 +462,7 @@
               <button class="card-close" aria-label="Close panel">✕</button>
               <div class="back-scroll">
                 <div class="case-head">
-                  <span class="case-id">PROJECT_LOG_03</span>
+                  <span class="case-id">PROJECT_LOG_04</span>
                   <span class="severity severity--low">WEB APP</span>
                 </div>
                 <h3>Edenthought</h3>
@@ -424,7 +514,7 @@
 
             <div class="flip-card-front">
               <div class="case-head">
-                <span class="case-id">PROJECT_LOG_04</span>
+                <span class="case-id">PROJECT_LOG_05</span>
                 <span class="severity severity--low">ML</span>
               </div>
               <img class="card-img" src="assets/lstm-prediction-plot.png" alt="Stock price prediction plot" data-placeholder-text="+ add prediction plot">
@@ -442,7 +532,7 @@
               <button class="card-close" aria-label="Close panel">✕</button>
               <div class="back-scroll">
                 <div class="case-head">
-                  <span class="case-id">PROJECT_LOG_04</span>
+                  <span class="case-id">PROJECT_LOG_05</span>
                   <span class="severity severity--low">ML</span>
                 </div>
                 <h3>Stock Price Prediction</h3>
@@ -485,7 +575,7 @@
 
             <div class="flip-card-front">
               <div class="case-head">
-                <span class="case-id">PROJECT_LOG_05</span>
+                <span class="case-id">PROJECT_LOG_06</span>
                 <span class="severity severity--med">CLOUD</span>
               </div>
               <img class="card-img" src="assets/employee-management-screenshot.png" alt="Employee Management App screenshot" data-placeholder-text="+ add app screenshot">
@@ -504,7 +594,7 @@
               <button class="card-close" aria-label="Close panel">✕</button>
               <div class="back-scroll">
                 <div class="case-head">
-                  <span class="case-id">PROJECT_LOG_05</span>
+                  <span class="case-id">PROJECT_LOG_06</span>
                   <span class="severity severity--med">CLOUD</span>
                 </div>
                 <h3>Employee Management App</h3>
@@ -567,8 +657,8 @@
         <a class="contact-link" href="tel:+61459841022">
           <span class="contact-label">phone</span>+61 459 841 022
         </a>
-        <a class="contact-link" href="#" data-placeholder="linkedin">
-          <span class="contact-label">linkedin</span>linkedin.com/in/nathan-lopes
+        <a class="contact-link" href="https://www.linkedin.com/in/nathanlopes-tech" target="_blank" rel="noopener">
+          <span class="contact-label">linkedin</span>linkedin.com/in/nathanlopes-tech
         </a>
         <a class="contact-link" href="https://github.com/nathanlopes45" target="_blank" rel="noopener">
           <span class="contact-label">github</span>github.com/nathanlopes45
@@ -578,7 +668,7 @@
       <div class="contact-status">
         <div class="status-chip">
           <span class="dot" aria-hidden="true"></span>
-          STATUS: OPEN_TO_INTERNSHIPS
+          STATUS: OPEN_TO_WORK
         </div>
         <p>Based in Melbourne, VIC. Happy to talk about SIEM and detection engineering, full-stack roles,
           or anything in between.</p>
@@ -608,7 +698,7 @@
         </div>
         <div class="form-row">
           <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="Internship opportunity, project question, etc.">
+          <input type="text" id="subject" name="subject" placeholder="Role opportunity, project question, etc.">
         </div>
         <div class="form-row">
           <label for="message">Message</label>

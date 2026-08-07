@@ -13,7 +13,7 @@ scroll to each section.
 
 The Projects section is collapsed by default so the page stays short for anyone just
 scrolling through. Clicking the arrow next to "Projects" expands it in place to reveal
-the four project cards. Click a card and it pops forward to the centre of the screen and
+the six project cards. Click a card and it pops forward to the centre of the screen and
 enlarges, then flips open for the full write-up. Click again, hit the close button, press
 Escape, or click the backdrop to close it.
 
@@ -32,11 +32,11 @@ If you'd rather use a different service (Formspree, EmailJS, etc.), just swap th
 
 ## Before you publish, fill this in
 
-The only remaining placeholder is the LinkedIn URL. Search for `data-placeholder="linkedin"`
-in `index.html`, and swap in your real profile link
-(currently shows `linkedin.com/in/nathan-lopes` as a placeholder).
+Contact links are all real now — email, phone, LinkedIn
+(`linkedin.com/in/nathanlopes-tech`) and GitHub.
 
 GitHub links are already wired up from your real repos:
+- ActivityGraph → `github.com/nathanlopes45/activitygraph`
 - SIEM → `github.com/nathanlopes45/siem`
 - Edenthought → `github.com/nathanlopes45/Edenthought`
 - TrueMatch → `github.com/cleresk/uommcsp` (group project, hosted under a teammate's account)
@@ -46,6 +46,7 @@ Each project card already has an `<img class="card-img">` tag pointing at a plac
 path in `assets/`. Drop your screenshots into `assets/` using these exact filenames (or
 update the `src` in `index.html` to whatever you name them):
 
+- `assets/activitygraph-time-and-activity-graph.png`
 - `assets/siem-screenshot.png`
 - `assets/truematch-screenshot.png`
 - `assets/edenthought-screenshot.png`
@@ -100,7 +101,7 @@ once near the top of `<body>`. If you split the site back into multiple pages la
 
 ## Ideas for extending it (good practice reps)
 
-- Add the five project screenshots to `assets/` (see filenames above).
+- Add the six project screenshots to `assets/` (see filenames above).
 - Add a small `/blog` or `/writeups` page for security write-ups (CTFs, SIEM detection
   notes). It's a natural fit for the site's visual language, and a good spot for a
   fourth nav link.
