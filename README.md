@@ -45,9 +45,8 @@ Repos linked from the cards: [activitygraph](https://github.com/nathanlopes45/ac
 [siem](https://github.com/nathanlopes45/siem) ·
 [Edenthought](https://github.com/nathanlopes45/Edenthought) ·
 [uommcsp](https://github.com/cleresk/uommcsp) (TrueMatch, group repo under a teammate's account) ·
-[employee-management-flask-aws](https://github.com/nathanlopes45/employee-management-flask-aws).
-The Stock Price Prediction card has no public repo yet — its back panel has a placeholder link
-ready for one.
+[employee-management-flask-aws](https://github.com/nathanlopes45/employee-management-flask-aws) ·
+[Stock-Market-Price-Prediction-LSTM-](https://github.com/nathanlopes45/Stock-Market-Price-Prediction-LSTM-).
 
 ## Contact form
 

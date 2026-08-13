@@ -18,7 +18,7 @@
       <path id="skillPath" d="M -100,580 C 250,580 320,280 650,280 C 950,280 1020,680 1350,680 C 1500,680 1550,520 1700,520" />
     </defs>
     <text class="skill-band-text">
-      <textPath href="#skillPath" startOffset="0%">PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · FIREBASE · POSTGRESQL · SQLITE · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · FIREBASE · POSTGRESQL · SQLITE · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;
+      <textPath href="#skillPath" startOffset="0%">PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · SQLALCHEMY · FIREBASE · POSTGRESQL · SQLITE · TENSORFLOW · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · SYSLOG · SYSMON · MITRE ATT&amp;CK · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · SQLALCHEMY · FIREBASE · POSTGRESQL · SQLITE · TENSORFLOW · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · SYSLOG · SYSMON · MITRE ATT&amp;CK · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;
         <animate attributeName="startOffset" from="0%" to="-100%" dur="18s" repeatCount="indefinite" />
       </textPath>
     </text>
@@ -175,7 +175,9 @@
     <div class="cert-row">
       <div class="cert-chip"><b>Google Cybersecurity Certificate</b><span>Coursera · 04/2025</span></div>
       <div class="cert-chip"><b>Complete Ethical Hacking Bootcamp</b><span>Udemy · 09/2024</span></div>
+      <div class="cert-chip"><b>100 Days of Code: The Complete Python Pro Bootcamp</b><span>Udemy · 08/2026</span></div>
       <div class="cert-chip"><b>Python Django: Ultimate Beginners Course</b><span>Udemy · 03/2024</span></div>
+      <div class="cert-chip"><b>Statistics For Data Science</b><span>Great Learning · 04/2023</span></div>
     </div>
   </section>
 
@@ -297,8 +299,8 @@
               <img class="card-img" src="assets/siem-screenshot.png" alt="Custom SIEM dashboard screenshot" data-placeholder-text="+ add dashboard screenshot">
               <h3>Custom SIEM</h3>
               <p class="case-sub">Security Information &amp; Event Management Platform</p>
-              <p class="case-desc">A decoupled SIEM backend that ingests logs, correlates events, and raises
-                alerts. Pairs with a locally-run LLM agent that investigates alerts on its own using read-only tool calls.</p>
+              <p class="case-desc">A decoupled SIEM that ingests logs over HTTP and real syslog, correlates them
+                into alerts, then hands each one to a locally-run LLM agent that investigates using read-only tool calls.</p>
               <div class="tags">
                 <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span>
                 <span class="tag">Docker</span><span class="tag">Ollama</span>
@@ -324,22 +326,31 @@
                 <h4>Architecture</h4>
                 <ul class="back-list">
                   <li><b>Ingest (FastAPI):</b> deliberately "dumb and fast". Parses structured fields and stores them, with no detection logic on the request path.</li>
+                  <li><b>Syslog listener:</b> a real UDP/514 collector running alongside the HTTP API, attributing each line to a host by source IP, so a device can ship logs without a custom agent.</li>
                   <li><b>Detection worker:</b> a separate process polling PostgreSQL every 10s, running every rule per host plus one fleet-wide cross-host check per cycle.</li>
-                  <li><b>LLM triage (Ollama, local):</b> generates a plain-English summary, severity, and recommended action per alert, with no external API and no log data leaving the machine.</li>
+                  <li><b>LLM triage and investigation (Ollama, local):</b> <code>llama3.2:1b</code> writes the plain-English summary, severity and recommended action; the heavier <code>llama3.2:3b</code> drives the agentic investigation. No external API, and no log data leaves the machine.</li>
                   <li><b>Storage:</b> PostgreSQL via SQLAlchemy, indexed on the columns each detector filters and groups by.</li>
-                  <li><b>Deployment:</b> fully containerized, with the API, worker, Postgres, and Ollama running as independent Docker Compose services.</li>
+                  <li><b>Deployment:</b> five Docker Compose services, each running independently: API, syslog collector, detection worker, Postgres and Ollama.</li>
                 </ul>
+
+                <h4>Log sources and output</h4>
+                <p class="back-p">Three log families, each with its own parser: OpenSSH auth logs, web access logs in
+                  combined log format (nginx / Apache), and Windows process-creation events from Sysmon. New alerts
+                  are pushed to a Slack incoming webhook, and a live dashboard shows the alert stream, a severity
+                  breakdown and per-host activity.</p>
 
                 <h4>Detections mapped to MITRE ATT&amp;CK</h4>
                 <table class="back-table">
                   <tbody>
                     <tr><td>Brute Force Attempt</td><td>T1110</td></tr>
                     <tr><td>Rapid Brute Force (2-min window)</td><td>T1110</td></tr>
+                    <tr><td>Distributed Brute Force (IP rotation)</td><td>T1110</td></tr>
                     <tr><td>Successful Brute Force</td><td>T1110 &rarr; T1078</td></tr>
                     <tr><td>Threat Intel Match</td><td>T1071</td></tr>
                     <tr><td>Cross-Host Brute Force (fleet-wide)</td><td>T1110</td></tr>
                     <tr><td>Web Reconnaissance (404 scanning)</td><td>T1595.003</td></tr>
                     <tr><td>Elevated Server Error Rate</td><td>anomaly, no direct mapping</td></tr>
+                    <tr><td>Possible ClickFix Execution</td><td>T1204 &rarr; T1059.001</td></tr>
                   </tbody>
                 </table>
 
@@ -358,14 +369,15 @@
                 </ul>
 
                 <div class="back-stats">
-                  <div><b>7+</b><span>detections</span></div>
+                  <div><b>9</b><span>detections</span></div>
                   <div><b>30+</b><span>automated tests</span></div>
                   <div><b>5</b><span>Docker services</span></div>
                 </div>
 
                 <div class="tags">
                   <span class="tag">FastAPI</span><span class="tag">SQLAlchemy</span><span class="tag">PostgreSQL</span>
-                  <span class="tag">Docker Compose</span><span class="tag">Ollama / llama3.2</span><span class="tag">pytest</span>
+                  <span class="tag">Docker Compose</span><span class="tag">Ollama / llama3.2</span><span class="tag">syslog</span>
+                  <span class="tag">Sysmon</span><span class="tag">MITRE ATT&amp;CK</span><span class="tag">pytest</span>
                   <span class="tag">GitHub Actions CI</span>
                 </div>
 
@@ -561,8 +573,7 @@
                   <span class="tag">pandas</span><span class="tag">matplotlib</span>
                 </div>
 
-                <a class="case-link is-disabled" href="#" data-placeholder="github">add repository link →</a>
-                <p class="repo-note">Not yet on a public repo. Link this once it's pushed.</p>
+                <a class="case-link" href="https://github.com/nathanlopes45/Stock-Market-Price-Prediction-LSTM-" target="_blank" rel="noopener">view repository →</a>
               </div>
             </div>
 
