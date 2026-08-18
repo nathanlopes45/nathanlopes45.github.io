@@ -256,10 +256,15 @@ main{ position:relative; z-index:1; }
 .meta-value a:hover{ color: var(--accent2); }
 
 /* Skills */
-.skills-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }
+.skills-lede{ margin-bottom:28px; max-width:64ch; }
+.skills-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:18px;
+  align-items:start;
+}
 .skill-card{
   border:1px solid var(--line); border-radius: var(--radius);
   padding:20px; background: var(--bg-panel);
+  display:flex; flex-direction:column;
 }
 .skill-card--accent{ border-color: var(--accent-dim); background: rgba(242,166,58,0.04); }
 .skill-card h3{ font-size:0.95rem; margin-bottom:14px; }
@@ -316,6 +321,18 @@ main{ position:relative; z-index:1; }
 .edu-card h3{ font-size:1.05rem; margin:8px 0 4px; }
 .edu-org{ color: var(--text-muted); font-size:0.86rem; }
 .edu-detail{ color: var(--text-faint); font-size:0.82rem; margin-top:8px; font-family: var(--font-mono); }
+.edu-notes{ margin-top:14px; padding-top:14px; border-top:1px solid var(--line); }
+.edu-notes li{
+  color: var(--text-muted); font-size:0.84rem; line-height:1.5;
+  padding-left:16px; position:relative; margin-bottom:6px;
+}
+.edu-notes li:last-child{ margin-bottom:0; }
+.edu-notes li::before{ content:"—"; position:absolute; left:0; color: var(--text-faint); }
+
+.sub-head{
+  font-size:1rem; margin:8px 0 16px;
+  padding-top:24px; border-top:1px solid var(--line);
+}
 
 .cert-row{ display:flex; gap:14px; flex-wrap:wrap; }
 .cert-chip{
