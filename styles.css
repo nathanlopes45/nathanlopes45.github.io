@@ -257,22 +257,29 @@ main{ position:relative; z-index:1; }
 
 /* Skills */
 .skills-lede{ margin-bottom:28px; max-width:64ch; }
+/* Two columns, not three: at three the tiles are only ~240px wide, which is
+   too narrow for most labels to sit two-per-row, so nearly every chip took a
+   row of its own and the tiles grew tall. Wider tiles let the chips flow. */
 .skills-grid{
-  display:grid; grid-template-columns: repeat(3, 1fr); gap:18px;
+  display:grid; grid-template-columns: repeat(2, 1fr); gap:18px;
   align-items:start;
 }
 .skill-card{
   border:1px solid var(--line); border-radius: var(--radius);
-  padding:20px; background: var(--bg-panel);
+  padding:16px 16px 15px; background: var(--bg-panel);
   display:flex; flex-direction:column;
 }
 .skill-card--accent{ border-color: var(--accent-dim); background: rgba(242,166,58,0.04); }
-.skill-card h3{ font-size:0.95rem; margin-bottom:14px; }
-.tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.skill-card h3{ font-size:0.95rem; margin-bottom:10px; }
+.tags{ display:flex; flex-wrap:wrap; gap:6px; }
 .tag{
   font-family: var(--font-mono); font-size:0.72rem; color: var(--text-muted);
-  border:1px solid var(--line); border-radius:999px; padding:4px 10px;
+  border:1px solid var(--line); border-radius:999px; padding:3px 9px;
+  line-height:1.4;
 }
+/* Skill tiles pack tightest when labels are short enough to sit two-per-row,
+   so keep them terse — a long label costs a whole row of tile height. */
+.skills-grid .tag{ white-space:nowrap; }
 .tag--alert{ color: var(--accent); border-color: var(--accent-dim); }
 
 /* Experience timeline */
@@ -376,7 +383,6 @@ main{ position:relative; z-index:1; }
 @media (max-width: 860px){
   .hero-grid{ grid-template-columns: 1fr; }
   .about-grid{ grid-template-columns: 1fr; }
-  .skills-grid{ grid-template-columns: repeat(2,1fr); }
   .projects-grid{ grid-template-columns: 1fr; }
   .edu-grid{ grid-template-columns: 1fr; }
   .contact-links{ grid-template-columns: 1fr; }
@@ -393,7 +399,9 @@ main{ position:relative; z-index:1; }
   .nav-toggle{ display:flex; }
 }
 
-@media (max-width: 560px){
+/* Hold two columns as long as a tile stays wide enough for chips to pair up;
+   below that a single wide column beats two cramped ones. */
+@media (max-width: 720px){
   .skills-grid{ grid-template-columns: 1fr; }
 }
 
