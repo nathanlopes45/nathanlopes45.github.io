@@ -59,7 +59,7 @@
           STATUS: OPEN_TO_WORK
         </div>
         <h1>Nathan Lopes</h1>
-        <p class="role">Software Developer | Cybersecurity Analyst | Security Engineer</p>
+        <p class="role">Security Engineer | Software Developer | Cybersecurity Analyst</p>
         <p class="lede">IT graduate student at the University of Melbourne. I build systems that detect,
           investigate and explain, like a local-first network analyser that turns a household's own traffic
           into per-person time, and a full-stack SIEM with AI-driven alert triage. Just as comfortable using
@@ -97,8 +97,11 @@
         security tooling, including Wireshark, Nmap and Metasploit. My two flagship projects are
         ActivityGraph, a local-first traffic analyser that runs on a Raspberry Pi gateway and reports where
         a household's time actually goes, and a full-stack SIEM platform that pairs detection engineering
-        with an AI agent for alert investigation. I'm actively looking for a role where I can apply both
-        sides of that skill set: shipping software and thinking like an attacker to make it safer.</p>
+        with an AI agent for alert investigation, the same SIEM whose hand-rolled ReAct loop once caught
+        itself fabricating a tool call it never made. Right now I'm on a capstone team building In-Sight, a
+        learning journey tool embedded inside Canvas for a Unimelb biochemistry subject. I'm actively looking
+        for a role where I can apply both sides of my skill set: shipping software and thinking like an
+        attacker to make it safer.</p>
       <div class="about-meta">
         <div class="meta-card">
           <span class="meta-label">based in</span>
@@ -120,6 +123,24 @@
   <section class="section" id="experience">
     <h2 class="section-title"><span class="idx">02</span>Experience</h2>
     <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker" aria-hidden="true"></div>
+        <div class="timeline-content">
+          <div class="timeline-head">
+            <h3>Software Engineer &ndash; Capstone Project (In-Sight)</h3>
+            <span class="timeline-date">07/2026 – Present</span>
+          </div>
+          <p class="timeline-org">University of Melbourne · Apprenticeship · Hybrid, Melbourne</p>
+          <ul class="timeline-list">
+            <li>Building In-Sight, a learning journey tool embedded inside Canvas via LTI 1.3, for a Unimelb biochemistry subject.</li>
+            <li>Own the LTI 1.3 integration: FastAPI + pylti1p3 backend, React/TypeScript + React Flow frontend, PostgreSQL underneath.</li>
+            <li>Switched to bearer tokens instead of cookies for session handling, since Canvas loads the tool in an iframe and Safari / hardened Chrome drop third-party cookies.</li>
+            <li>Ran the requirements process with AMMBER motivational modelling, from personas to 6 candidate goals, with validated exports published to the team wiki.</li>
+            <li>Chose a rule-based recommendation engine over a model so a student can always see why a next step was suggested.</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="timeline-item">
         <div class="timeline-marker" aria-hidden="true"></div>
         <div class="timeline-content">
@@ -208,8 +229,8 @@
         <h3>Tooling &amp; Platform</h3>
         <div class="tags">
           <span class="tag">Docker</span><span class="tag">FastAPI</span><span class="tag">Django</span>
-          <span class="tag">PostgreSQL</span><span class="tag">AWS</span><span class="tag">TensorFlow</span>
-          <span class="tag">pytest</span><span class="tag">CI/CD</span>
+          <span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span>
+          <span class="tag">TensorFlow</span><span class="tag">pytest</span><span class="tag">CI/CD</span>
         </div>
       </div>
 
@@ -217,16 +238,18 @@
         <h3>Languages &amp; Data</h3>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span>
-          <span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">NoSQL</span>
-          <span class="tag">Data modelling</span>
+          <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span>
+          <span class="tag">NoSQL</span><span class="tag">Data modelling</span>
         </div>
       </div>
 
       <div class="skill-card">
-        <h3>Systems &amp; Cloud</h3>
+        <h3>Software Engineering</h3>
         <div class="tags">
-          <span class="tag">Linux</span><span class="tag">TCP/IP</span><span class="tag">Cloud</span>
-          <span class="tag">Distributed systems</span>
+          <span class="tag">OOP design</span><span class="tag">Algorithms</span>
+          <span class="tag">Data structures</span><span class="tag">Testing &amp; QA</span>
+          <span class="tag">Agile delivery</span><span class="tag">Static verification</span>
+          <span class="tag">Project management</span>
         </div>
       </div>
 
@@ -239,12 +262,10 @@
       </div>
 
       <div class="skill-card">
-        <h3>Software Engineering</h3>
+        <h3>Systems &amp; Cloud</h3>
         <div class="tags">
-          <span class="tag">OOP design</span><span class="tag">Algorithms</span>
-          <span class="tag">Data structures</span><span class="tag">Testing &amp; QA</span>
-          <span class="tag">Agile delivery</span><span class="tag">Static verification</span>
-          <span class="tag">Project management</span>
+          <span class="tag">Linux</span><span class="tag">TCP/IP</span><span class="tag">Cloud</span>
+          <span class="tag">Distributed systems</span>
         </div>
       </div>
 
@@ -270,10 +291,10 @@
         <span class="toggle-chevron" aria-hidden="true">&#9662;</span>
       </span>
     </button>
-    <p class="teaser-text">A closer look at six builds: a local-first network analyser running on a Raspberry Pi
-      gateway, a full-stack SIEM with an AI investigation agent, a behaviour-based matching app, a Django
-      journal, an LSTM forecasting model, and a Flask app running on AWS. Click the arrow to
-      expand and see the full breakdown for each.</p>
+    <p class="teaser-text">A closer look at seven builds: an LTI tool embedded in Canvas, a local-first network
+      analyser running on a Raspberry Pi gateway, a full-stack SIEM with an AI investigation agent, a
+      behaviour-based matching app, a Django journal, an LSTM forecasting model, and a Flask app running on
+      AWS. Click the arrow to expand and see the full breakdown for each.</p>
 
     <div class="projects-collapse" id="projectsCollapse">
       <div class="cards-grid" id="cardsGrid">
@@ -724,6 +745,79 @@
                 </div>
 
                 <a class="case-link" href="https://github.com/nathanlopes45/employee-management-flask-aws" target="_blank" rel="noopener">view repository →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- IN-SIGHT -->
+        <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="In-Sight, click to expand details" data-project="insight">
+          <div class="flip-card-inner">
+
+            <div class="flip-card-front">
+              <div class="case-head">
+                <span class="case-id">PROJECT_LOG_07</span>
+                <span class="severity severity--med">CAPSTONE · IN PROGRESS</span>
+              </div>
+              <img class="card-img" src="assets/insight-screenshot.png" alt="In-Sight dashboard screenshot" data-placeholder-text="+ add dashboard screenshot">
+              <h3>In-Sight</h3>
+              <p class="case-sub">LTI 1.3 Learning Journey Tool for Canvas</p>
+              <p class="case-desc">A capstone build for a Unimelb biochemistry subject: an LTI 1.3 tool that
+                embeds inside Canvas and maps a student's learning journey with an explainable, rule-based
+                recommendation engine.</p>
+              <div class="tags">
+                <span class="tag">FastAPI</span><span class="tag">pylti1p3</span><span class="tag">React</span>
+                <span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
+              </div>
+              <span class="flip-hint">click to expand ↻</span>
+            </div>
+
+            <div class="flip-card-back">
+              <button class="card-close" aria-label="Close panel">✕</button>
+              <div class="back-scroll">
+                <div class="case-head">
+                  <span class="case-id">PROJECT_LOG_07</span>
+                  <span class="severity severity--med">CAPSTONE · IN PROGRESS</span>
+                </div>
+                <h3>In-Sight</h3>
+                <p class="case-sub">A learning journey tool embedded inside Canvas</p>
+
+                <p class="back-p">Built with a 4-person capstone team for a Unimelb biochemistry subject.
+                  In-Sight lives inside Canvas via LTI 1.3 and helps a student see where they are in a
+                  learning journey and what to look at next, without hiding the reasoning behind that
+                  suggestion.</p>
+
+                <h4>My role: the LTI integration</h4>
+                <ul class="back-list">
+                  <li><b>Backend:</b> FastAPI with <code>pylti1p3</code> handling the LTI 1.3 launch and
+                    grade-passback flow.</li>
+                  <li><b>Frontend:</b> React and TypeScript, with React Flow rendering the learning journey
+                    as a node graph.</li>
+                  <li><b>Storage:</b> PostgreSQL underneath.</li>
+                  <li><b>Session handling:</b> Canvas loads the tool in an iframe, and Safari plus hardened
+                    Chrome both drop third-party cookies, which is how most LTI tools hold a session. Bearer
+                    tokens sidestep that, so the tool keeps working in browsers where cookie-based ones
+                    quietly break.</li>
+                </ul>
+
+                <h4>Requirements process</h4>
+                <p class="back-p">Ran AMMBER motivational modelling to go from user personas to six candidate
+                  goals, with validated model exports published to the team wiki so scope arguments had
+                  somewhere to point.</p>
+
+                <h4>Notable decision</h4>
+                <p class="back-p">Chose a rule-based recommendation engine over a model. A student has to be
+                  able to see why a next step was suggested, and that trade-off was written up for the client
+                  rather than left implicit.</p>
+
+                <div class="tags">
+                  <span class="tag">FastAPI</span><span class="tag">pylti1p3</span><span class="tag">React</span>
+                  <span class="tag">TypeScript</span><span class="tag">React Flow</span><span class="tag">PostgreSQL</span>
+                  <span class="tag">LTI 1.3</span>
+                </div>
+
+                <p class="repo-note">Team capstone project, University of Melbourne.</p>
               </div>
             </div>
 
