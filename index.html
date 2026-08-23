@@ -12,19 +12,6 @@
 </head>
 <body>
 
-<div class="skills-band-bg" aria-hidden="true">
-  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
-    <defs>
-      <path id="skillPath" d="M -100,580 C 250,580 320,280 650,280 C 950,280 1020,680 1350,680 C 1500,680 1550,520 1700,520" />
-    </defs>
-    <text class="skill-band-text">
-      <textPath href="#skillPath" startOffset="0%">PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · SQLALCHEMY · FIREBASE · POSTGRESQL · SQLITE · TENSORFLOW · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · SYSLOG · SYSMON · MITRE ATT&amp;CK · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;PYTHON · JAVA · C · JAVASCRIPT · DJANGO · FLASK · FASTAPI · SQLALCHEMY · FIREBASE · POSTGRESQL · SQLITE · TENSORFLOW · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · SYSLOG · SYSMON · MITRE ATT&amp;CK · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING · &#160;
-        <animate attributeName="startOffset" from="0%" to="-100%" dur="18s" repeatCount="indefinite" />
-      </textPath>
-    </text>
-  </svg>
-</div>
-
 <div class="scanline" aria-hidden="true"></div>
 
 <a class="skip-link" href="#main">Skip to content</a>
@@ -44,6 +31,16 @@
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+  </div>
+
+  <!-- Two identical sequences: the track scrolls exactly one of them, so the loop repeats seamlessly.
+       The trailing separator ends in &nbsp; because a normal trailing space is stripped at the end of
+       a line, which would close the gap at the join every cycle. -->
+  <div class="skills-ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-seq">PYTHON · JAVA · C · JAVASCRIPT · TYPESCRIPT · DJANGO · FLASK · FASTAPI · REACT · SQLALCHEMY · FIREBASE · POSTGRESQL · SQLITE · TENSORFLOW · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · SYSLOG · SYSMON · MITRE ATT&amp;CK · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING ·&nbsp;</span>
+      <span class="ticker-seq">PYTHON · JAVA · C · JAVASCRIPT · TYPESCRIPT · DJANGO · FLASK · FASTAPI · REACT · SQLALCHEMY · FIREBASE · POSTGRESQL · SQLITE · TENSORFLOW · GIT · DOCKER · LINUX · RASPBERRY PI · SCAPY · NFTABLES · TLS/DNS ANALYSIS · SYSLOG · SYSMON · MITRE ATT&amp;CK · KALI LINUX · NMAP · WIRESHARK · METASPLOIT · BURP SUITE · NESSUS · AWS · PYTEST · GITHUB ACTIONS · LEADERSHIP · COMMUNICATION · CRITICAL THINKING ·&nbsp;</span>
+    </div>
   </div>
 </header>
 

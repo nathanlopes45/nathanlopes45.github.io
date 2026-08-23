@@ -181,50 +181,50 @@ ul{ margin:0; padding:0; list-style:none; }
 .panel-body b{ color: var(--text); font-weight:500; text-align:right; }
 
 /* ============================================================
-   Skills band — a broad strip of letters flowing left→right,
-   bending twice. Fixed to the viewport so it stays visible
-   behind every section as the page scrolls, not just the hero.
+   Skills ticker — one running line of skills under the nav.
+   It lives inside the sticky header rather than being pinned
+   separately, so it tracks the navbar's height instead of
+   needing a hard-coded top offset that breaks when the nav
+   wraps or the mobile menu opens.
    ============================================================ */
-.skills-band-bg{
-  position:fixed; inset:0;
-  overflow:hidden; pointer-events:none; z-index:0;
+.skills-ticker{
+  overflow:hidden; pointer-events:none;
+  padding:7px 0;
+  border-top:1px solid var(--line);
+  background: rgba(18,24,34,0.72);
+  /* Fade both ends so names dissolve in and out instead of being
+     chopped by the clip edge — that hard cut is what stops a marquee
+     reading as endless. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
 }
-.skills-band-bg svg{ width:100%; height:100%; display:block; }
-#skillPath{ fill:none; stroke:none; }
-.skill-band-text{
-  font-family: var(--font-mono); font-weight:700;
-  font-size:72px; letter-spacing:0.05em;
-  fill: var(--accent2);
-  stroke: var(--bg);
-  stroke-width: 2px;
-  paint-order: stroke;
-  opacity:0.5;
+.ticker-track{
+  display:flex; width:max-content;
+  animation: ticker-scroll 60s linear infinite;
+}
+/* Half the track is exactly one sequence, so the reset lands on an
+   identical frame — no visible jump, whatever the text measures. */
+@keyframes ticker-scroll{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); }
+}
+.ticker-seq{
+  font-family: var(--font-mono); font-weight:500;
+  font-size:0.82rem; letter-spacing:0.14em;
+  white-space:nowrap; color: var(--accent2);
+  opacity:0.72;
 }
 
-/* Everything else needs to sit in its own stacking context above the
-   fixed band (position:fixed alone would otherwise paint on top of
-   ordinary static content, regardless of source order). */
-header.topbar{ position:sticky; }
+/* Keep page content in its own stacking context so the fixed
+   scanline overlay paints above it. */
 main{ position:relative; z-index:1; }
 .footer{ position:relative; z-index:1; }
 .scanline{ z-index:5; }
 
 .hero{ position:relative; }
 .hero-grid{ position:relative; z-index:1; }
-.hero-copy{ position:relative; z-index:2; padding:22px 26px; }
-.hero-copy::before{
-  content:""; position:absolute; inset:-6px -22px;
-  background: rgba(11,15,20,0.45);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 16px; z-index:-1;
-}
+.hero-copy{ position:relative; z-index:2; }
 .hero-panel{ position:relative; z-index:2; }
-
-@media (max-width: 860px){
-  .skill-band-text{ font-size:44px; opacity:0.4; }
-  .hero-copy{ padding:16px 18px; }
-}
 
 /* ============================================================
    Sections
@@ -397,6 +397,14 @@ main{ position:relative; z-index:1; }
   .nav a{ padding:12px 0; border-bottom:1px solid var(--line); }
   .nav a:last-child{ border-bottom:none; }
   .nav-toggle{ display:flex; }
+
+  /* Smaller type, and a shorter fade — 72px a side would eat a third
+     of a phone screen. */
+  .ticker-seq{ font-size:0.68rem; }
+  .skills-ticker{
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  }
 }
 
 /* Hold two columns as long as a tile stays wide enough for chips to pair up;

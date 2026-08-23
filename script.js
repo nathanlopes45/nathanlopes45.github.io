@@ -29,12 +29,6 @@ document.querySelectorAll('.card-img').forEach(img => {
   }, { once: true });
 });
 
-// Respect reduced-motion for the SVG skills band (SMIL animate isn't
-// controllable via a CSS media query, so handle it here)
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('.skill-band-text animate').forEach(a => a.remove());
-}
-
 // Highlight active nav link on scroll
 const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.nav a');
