@@ -95,8 +95,9 @@
         ActivityGraph, a local-first traffic analyser that runs on a Raspberry Pi gateway and reports where
         a household's time actually goes, and a full-stack SIEM platform that pairs detection engineering
         with an AI agent for alert investigation, the same SIEM whose hand-rolled ReAct loop once caught
-        itself fabricating a tool call it never made. Right now I'm on a capstone team building In-Sight, a
-        learning journey tool embedded inside Canvas for a Unimelb biochemistry subject. I'm actively looking
+        itself fabricating a tool call it never made. I've just delivered In-Sight with a capstone team, a
+        learning journey web app for a Unimelb biochemistry subject, where I owned the STRIDE threat model
+        and the security fixes that came out of it. I'm actively looking
         for a role where I can apply both sides of my skill set: shipping software and thinking like an
         attacker to make it safer.</p>
       <div class="about-meta">
@@ -125,15 +126,17 @@
         <div class="timeline-content">
           <div class="timeline-head">
             <h3>Software Engineer &ndash; Capstone Project (In-Sight)</h3>
-            <span class="timeline-date">07/2026 – Present</span>
+            <span class="timeline-date">07/2026 – 10/2026</span>
           </div>
           <p class="timeline-org">University of Melbourne · Apprenticeship · Hybrid, Melbourne</p>
           <ul class="timeline-list">
-            <li>Building In-Sight, a learning journey tool embedded inside Canvas via LTI 1.3, for a Unimelb biochemistry subject.</li>
-            <li>Own the LTI 1.3 integration: FastAPI + pylti1p3 backend, React/TypeScript + React Flow frontend, PostgreSQL underneath.</li>
-            <li>Switched to bearer tokens instead of cookies for session handling, since Canvas loads the tool in an iframe and Safari / hardened Chrome drop third-party cookies.</li>
+            <li>Delivered In-Sight with a 4-person team: a standalone web app, linked from Canvas, that shows a Unimelb biochemistry student their learning journey as a visual roadmap.</li>
+            <li>Rotated through all three team roles across the sprints: Product Owner, then Quality Tester leading code review and testing, then Scrum Master and security owner.</li>
+            <li>Built the backend for the journey map (US-01) in Node.js, Express and TypeScript with Prisma and PostgreSQL, reading recorded Canvas fixtures behind a swappable transport layer.</li>
+            <li>Owned the security work: a STRIDE threat model of 9 threats, 8 fixed and verified by replaying the bad request before and after each fix, and 38/38 on a peer re-check.</li>
+            <li>Set up the CI pipeline: typecheck, lint, tests, dependency audit, secret scan and a contract check that migrates, seeds and starts the server before verifying the API.</li>
             <li>Ran the requirements process with AMMBER motivational modelling, from personas to 6 candidate goals, with validated exports published to the team wiki.</li>
-            <li>Chose a rule-based recommendation engine over a model so a student can always see why a next step was suggested.</li>
+            <li>Top committer on the repo (41 of 112 commits); the delivered app carries 519 passing tests.</li>
           </ul>
         </div>
       </div>
@@ -183,7 +186,7 @@
         <p class="edu-org">Specialisation: Cybersecurity · The University of Melbourne</p>
         <p class="edu-detail">WAM: 76.30 / 100 · 200 points</p>
         <ul class="edu-notes">
-          <li>Engineering &amp; IT Graduate Scholarship, awarded 2025</li>
+          <li>Engineering &amp; IT Graduate Scholarship, awarded on entry in 2025</li>
         </ul>
       </div>
       <div class="edu-card">
@@ -202,13 +205,19 @@
       <div class="cert-chip"><b>Python Django: Ultimate Beginners Course</b><span>Udemy · 03/2024</span></div>
       <div class="cert-chip"><b>Statistics For Data Science</b><span>Great Learning · 02/2024</span></div>
     </div>
+
+    <h3 class="sub-head">Mentoring</h3>
+    <div class="cert-row">
+      <div class="cert-chip"><b>Career Mentoring Program</b><span>Univ. of Melbourne · Sem 2 2026 · mentor: Aravind Udayasankaran, Commonwealth Bank of Australia</span></div>
+      <div class="cert-chip"><b>STEM Industry Mentoring Program</b><span>Univ. of Melbourne · Sem 2 2025 · mentor: Michael Kamar, Director, Cybersecurity &amp; Privacy, PwC</span></div>
+    </div>
   </section>
 
   <!-- SKILLS -->
   <section class="section" id="skills">
     <h2 class="section-title"><span class="idx">04</span>Skills</h2>
     <p class="teaser-text skills-lede">What I've picked up across both degrees and everything I've built
-      since — grouped by the kind of work it's actually for.</p>
+      since, grouped by the kind of work it's actually for.</p>
 
     <div class="skills-grid">
 
@@ -288,7 +297,7 @@
         <span class="toggle-chevron" aria-hidden="true">&#9662;</span>
       </span>
     </button>
-    <p class="teaser-text">A closer look at seven builds: an LTI tool embedded in Canvas, a local-first network
+    <p class="teaser-text">A closer look at seven builds: a learning journey web app for Canvas, a local-first network
       analyser running on a Raspberry Pi gateway, a full-stack SIEM with an AI investigation agent, a
       behaviour-based matching app, a Django journal, an LSTM forecasting model, and a Flask app running on
       AWS. Click the arrow to expand and see the full breakdown for each.</p>
@@ -755,17 +764,17 @@
             <div class="flip-card-front">
               <div class="case-head">
                 <span class="case-id">PROJECT_LOG_07</span>
-                <span class="severity severity--med">CAPSTONE · IN PROGRESS</span>
+                <span class="severity severity--med">CAPSTONE · DELIVERED</span>
               </div>
               <img class="card-img" src="assets/insight-screenshot.png" alt="In-Sight dashboard screenshot" data-placeholder-text="+ add dashboard screenshot">
               <h3>In-Sight</h3>
-              <p class="case-sub">LTI 1.3 Learning Journey Tool for Canvas</p>
-              <p class="case-desc">A capstone build for a Unimelb biochemistry subject: an LTI 1.3 tool that
-                embeds inside Canvas and maps a student's learning journey with an explainable, rule-based
-                recommendation engine.</p>
+              <p class="case-sub">Learning Journey Web App for Canvas</p>
+              <p class="case-desc">A delivered capstone for a Unimelb biochemistry subject: a standalone web
+                app, linked from Canvas, that turns a student's weeks, activities, assessments and skills
+                into one visual roadmap.</p>
               <div class="tags">
-                <span class="tag">FastAPI</span><span class="tag">pylti1p3</span><span class="tag">React</span>
-                <span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
+                <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Prisma</span>
+                <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span>
               </div>
               <span class="flip-hint">click to expand ↻</span>
             </div>
@@ -775,46 +784,71 @@
               <div class="back-scroll">
                 <div class="case-head">
                   <span class="case-id">PROJECT_LOG_07</span>
-                  <span class="severity severity--med">CAPSTONE · IN PROGRESS</span>
+                  <span class="severity severity--med">CAPSTONE · DELIVERED</span>
                 </div>
                 <h3>In-Sight</h3>
-                <p class="case-sub">A learning journey tool embedded inside Canvas</p>
+                <p class="case-sub">A learning journey web app, reached from Canvas</p>
 
-                <p class="back-p">Built with a 4-person capstone team for a Unimelb biochemistry subject.
-                  In-Sight lives inside Canvas via LTI 1.3 and helps a student see where they are in a
-                  learning journey and what to look at next, without hiding the reasoning behind that
-                  suggestion.</p>
+                <p class="back-p">Built with a 4-person team for a Unimelb biochemistry subject, with a real
+                  client. In-Sight shows a student their weeks, activities, assessments, skills and learning
+                  outcomes as one roadmap, and how they connect. Building inside Canvas as an LTI tool was
+                  considered and ruled out on time and access grounds, so it ships as a standalone site
+                  linked from the subject page.</p>
 
-                <h4>My role: the LTI integration</h4>
+                <h4>Three roles, one per sprint</h4>
+                <p class="back-p">The team rotated roles each sprint: <b>Product Owner</b> first, running
+                  client communication and the requirements work; then <b>Quality Tester</b>, leading code
+                  review and testing against acceptance criteria; then <b>Scrum Master</b> for the final
+                  sprint, owning the board, the journey-map story and all of the security work.</p>
+
+                <h4>What I built</h4>
                 <ul class="back-list">
-                  <li><b>Backend:</b> FastAPI with <code>pylti1p3</code> handling the LTI 1.3 launch and
-                    grade-passback flow.</li>
-                  <li><b>Frontend:</b> React and TypeScript, with React Flow rendering the learning journey
-                    as a node graph.</li>
-                  <li><b>Storage:</b> PostgreSQL underneath.</li>
-                  <li><b>Session handling:</b> Canvas loads the tool in an iframe, and Safari plus hardened
-                    Chrome both drop third-party cookies, which is how most LTI tools hold a session. Bearer
-                    tokens sidestep that, so the tool keeps working in browsers where cookie-based ones
-                    quietly break.</li>
+                  <li><b>Journey-map backend (US-01):</b> Node.js, Express and TypeScript with Prisma over
+                    PostgreSQL. The first real backend in the project, it took the feature off the frontend's
+                    hardcoded data and left the UI unchanged.</li>
+                  <li><b>Canvas data:</b> no live API key was granted, so the subject was recorded from a
+                    Canvas playpen as fixtures behind a swappable transport, leaving an <code>http</code>
+                    path ready for a live swap later.</li>
+                  <li><b>Student data layer:</b> tables, migrations and a database <b>audit trigger</b> so
+                    every load is recorded with who, where and when, and each change links back to it.</li>
+                  <li><b>CI pipeline:</b> typecheck, ESLint, Prettier, tests and build for both halves, plus
+                    <code>npm audit</code>, a secret scan, and a contract-check job that migrates, seeds and
+                    starts the server before verifying the API against its contract.</li>
                 </ul>
+
+                <h4>Security: a STRIDE threat model I owned</h4>
+                <p class="back-p">Nine threats, <b>eight fixed and tested</b> by sending the bad request
+                  straight at the server before and after each fix. A peer re-check scored 38/38 and turned
+                  up one more gap, which was fixed. Among them: the server refuses any subject but its own,
+                  CORS cut to In-Sight's own origin, a 300 req/min rate limit after a 2,000-request burst
+                  pushed latency from 26&nbsp;ms to ~1.4&nbsp;s, the Canvas token pinned to its configured
+                  host over HTTPS only, and persona import moved from a deny-list to an allow-list after a
+                  file carrying student emails got through.</p>
+                <p class="back-p">The ninth (no student login) was deliberately left open and handed to the
+                  client and the University as a decision for them, with everything bound to
+                  <code>127.0.0.1</code> in the meantime. I also wrote the ethics position: grades, scores
+                  and rankings were ruled out, because the tool exists for student wellbeing.</p>
 
                 <h4>Requirements process</h4>
                 <p class="back-p">Ran AMMBER motivational modelling to go from user personas to six candidate
                   goals, with validated model exports published to the team wiki so scope arguments had
                   somewhere to point.</p>
 
-                <h4>Notable decision</h4>
-                <p class="back-p">Chose a rule-based recommendation engine over a model. A student has to be
-                  able to see why a next step was suggested, and that trade-off was written up for the client
-                  rather than left implicit.</p>
-
-                <div class="tags">
-                  <span class="tag">FastAPI</span><span class="tag">pylti1p3</span><span class="tag">React</span>
-                  <span class="tag">TypeScript</span><span class="tag">React Flow</span><span class="tag">PostgreSQL</span>
-                  <span class="tag">LTI 1.3</span>
+                <div class="back-stats">
+                  <div><b>519</b><span>passing tests</span></div>
+                  <div><b>41/112</b><span>commits, most on the team</span></div>
+                  <div><b>8/9</b><span>threats fixed &amp; tested</span></div>
                 </div>
 
-                <p class="repo-note">Team capstone project, University of Melbourne.</p>
+                <div class="tags">
+                  <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">TypeScript</span>
+                  <span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">React</span>
+                  <span class="tag">React Flow</span><span class="tag">Vite</span><span class="tag">Vitest</span>
+                  <span class="tag">Docker Compose</span><span class="tag">STRIDE</span><span class="tag">GitHub Actions CI</span>
+                </div>
+
+                <p class="repo-note">Team capstone project, University of Melbourne. Repository is private to
+                  the subject's GitHub organisation.</p>
               </div>
             </div>
 
